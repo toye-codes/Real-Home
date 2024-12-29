@@ -34,13 +34,13 @@ const Hero = () => {
 
             <div className="flex flex-col items-center mt-10 md:flex-row md:mt-12 lg:mt-14 lg:mb-14 ">
               <button
-                className="text-base text-white w-32 bg-black border-none rounded-md pl-3 pr-3 pt-2 pb-2 lg:text-2xl lg:w-auto lg:p-4 
+                className="text-base text-white w-32 bg-black border-none rounded-md pl-3 pr-3 pt-2 pb-2 lg:text-2xl lg:w-auto lg:px-4 lg:py-3
                     hover:bg-gray-800  hover:text-white hover:transition-all transform duration-300 ease-in-out hover:scale-105">
                 Get Started
               </button>
 
               <button
-                className="flex gap-2 text-base w-auto border-none rounded-md px-3 pt-2 pb-3 lg:text-2xl lg:w-auto lg:pt-5 hover:bg-gray-800 hover:text-white
+                className="flex gap-2 text-base w-auto border-none rounded-md px-3 py-3 lg:text-2xl lg:w-auto lg:px-4 lg:py-3 hover:bg-gray-800 hover:text-white
                         hover:transition-all transform duration-300 ease-in-out">
                 Learn More
                 <span className="mt-1 md:mt-2 lg:w-auto">
@@ -49,7 +49,7 @@ const Hero = () => {
               </button>
             </div>
 
-            <div className="hidden md:flex flex-col">
+            <div className="hidden md:flex flex-col mb-0">
               <div className="flex gap-5 ">
                 <div className="mb-10">
                   <h3 className="font-semibold text-2xl text-orange-300">

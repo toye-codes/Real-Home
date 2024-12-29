@@ -67,7 +67,7 @@ const About = () => {
       </div>
 
       <div className="lg:flex lg:flex-col lg:items-end">
-        <button className=" mt-8 bg-black text-white text-base md:text-xl px-9 py-4 rounded hover:bg-gray-800 transition">
+        <button className=" mt-8 bg-black text-white text-base md:text-xl px-4 py-2 rounded hover:bg-gray-800 transition">
           Learn More
         </button>
       </div>
