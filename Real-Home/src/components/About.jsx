@@ -1,5 +1,28 @@
 import React from "react";
-import about from '../assets/about.png'
+import about from "../assets/about.png";
+
+const features = [
+  {
+    title: "Great Customer Service",
+    description:
+      "We prioritize your satisfaction by offering prompt and professional support at every step. Your concerns are our top priority.",
+  },
+  {
+    title: "Discounts and Offers",
+    description:
+      "Enjoy incredible savings with our exclusive deals and special discounts tailored just for you.",
+  },
+  {
+    title: "Outstanding Quality",
+    description:
+      "Our products and services are crafted with precision and care, ensuring you receive nothing short of excellence.",
+  },
+  {
+    title: "Amazing In-House Tools",
+    description:
+      "From state-of-the-art software to advanced technology, we provide tools that simplify your life and improve efficiency.",
+  },
+];
 
 const About = () => {
   return (
@@ -11,52 +34,25 @@ const About = () => {
         Here are some few reasons why we are your preferred choice
       </p>
 
-      <div className="flex flex-wrap justify-center md:justify-between items-start lg:gap-8 mt-1 sm:mt-20 ">
+      <div className="md:flex justify-center md:justify-between items-start lg:gap-8 md:gap-5 mt-1 sm:mt-20 ">
         <img
           src={about}
           alt="real-homes"
-          className="hidden sm:hidden md:inline lg:flex md:w-full shadow-lg lg:max-w-sm h-custom lg:rounded-tr-custom lg:rounded-bl-custom"
+          className="hidden sm:hidden md:inline lg:flex md:w-full shadow-lg lg:max-w-sm h-96 md:rounded-tr-custom md:rounded-bl-custom lg:rounded-tr-custom lg:rounded-bl-custom"
         />
 
         {/* Features Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 gap-6 md:gap-6 lg:max-w-3xl text-left mt-5">
-          <div>
-            <h3 className="text-black md:text-orange-500 text-base md:text-xl lg:text-3xl font-semibold mb-3 md:mb-5 ">
-              Great Customer Service
-            </h3>
-            <p className="text-gray-600 font-normal text-sm md:text-lg lg:text-xl">
-              We prioritize your satisfaction by offering prompt and
-              professional support at every step. Your concerns are our top
-              priority.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-black md:text-orange-500 text-base md:text-xl lg:text-3xl font-semibold mb-3 md:mb-5 ">
-              Discounts and Offers
-            </h3>
-            <p className="text-gray-600 font-normal text-sm md:text-lg lg:text-xl ">
-              Enjoy incredible savings with our exclusive deals and special
-              discounts tailored just for you.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-black md:text-orange-500 text-base md:text-xl lg:text-3xl font-semibold mb-3 md:mb-5 ">
-              Outstanding Quality
-            </h3>
-            <p className="text-gray-600 font-normal text-sm md:text-lg  lg:text-xl ">
-              Our products and services are crafted with precision and care,
-              ensuring you receive nothing short of excellence.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-black md:text-orange-500 text-base md:text-xl lg:text-3xl font-semibold mb-3 md:mb-5 ">
-              Amazing In-House Tools
-            </h3>
-            <p className="text-gray-600 font-normal text-sm  md:text-lg lg:text-xl">
-              From state-of-the-art software to advanced technology, we provide
-              tools that simplify your life and improve efficiency.
-            </p>
-          </div>
+          {features.map((feature, index) => (
+            <div key={index}>
+              <h3 className="text-black md:text-orange-500 text-base md:text-xl lg:text-xl font-semibold mb-3 md:mb-5 ">
+                {feature.title}
+              </h3>
+              <p className="text-gray-600 font-normal text-sm md:text-lg lg:text-lg">
+                {feature.description}
+              </p>
+            </div>
+          ))}
         </div>
 
         <img
