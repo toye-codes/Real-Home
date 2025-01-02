@@ -8,32 +8,31 @@ import FeaturedProperties from "./components/FeaturedProperties";
 import Testimonials from "./components/Testimonial";
 import Footer from "./components/Footer";
 import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 const App = () => {
   return (
-    <section>
-      <div>
+    <main>
+      <header>
         <Navbar />
-      </div>
-      <div>
         <Hero />
-      </div>
-      <div>
+      </header>
+      <section>
         <Services />
-      </div>
-      <div>
+      </section>
+      <section>
         <About />
-      </div>
-      <div>
+      </section>
+      <section>
         <FeaturedProperties />
-      </div>
-      <div>
+      </section>
+      <section>
         <Testimonials />
-      </div>
-      <div>
+      </section>
+      <footer>
         <Footer />
-      </div>
-    </section>
+      </footer>
+    </main>
   );
 };
 

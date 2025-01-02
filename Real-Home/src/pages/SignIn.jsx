@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Mail, Lock } from "lucide-react";
 import logo from "../assets/logo.png";
 import appleAuth from "../assets/appleAuth.png";
-import googleAuth from "../assets/googleAuth.png";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import GoogleAuthButton from "../components/GoogleAuthButton";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -152,15 +152,14 @@ const SignIn = () => {
             <div className="mt-6 grid grid-cols-2 gap-3">
               <button
                 type="button"
-                className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                <img src={googleAuth} alt="Google logo" className="h-5 w-5" />
-                <span className="ml-2">Google</span>
+                className="w-full inline-flex justify-center border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                <GoogleAuthButton/>
               </button>
               <button
                 type="button"
-                className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                className="w-fit inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
                 <img src={appleAuth} alt="Apple logo" className="h-5 w-5" />
-                <span className="ml-2">Apple</span>
+                <span className="ml-2">Sign in with Apple</span>
               </button>
             </div>
           </div>
@@ -176,6 +175,8 @@ const SignIn = () => {
           </div>
         </div>
       </div>
+
+     
     </div>
   );
 };

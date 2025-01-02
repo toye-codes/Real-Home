@@ -2,15 +2,9 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Services from "./components/Services";
-import About from "./components/About";
-import FeaturedProperties from "./components/FeaturedProperties";
-import Testimonials from "./components/Testimonial";
-import Footer from "./components/Footer";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -22,10 +16,19 @@ const router = createBrowserRouter([
     path: "/signin",
     element: <SignIn />,
   },
+  {
+    path: "/signup",
+    element: <SignUp />,
+  },
 ]);
+
+const clientId =
+  "640274954613-crhrds2shij8itrud2vn4ep06658ngc4.apps.googleusercontent.com";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <GoogleOAuthProvider clientId={clientId}>
+      <RouterProvider router={router} />
+    </GoogleOAuthProvider>
   </StrictMode>
 );
