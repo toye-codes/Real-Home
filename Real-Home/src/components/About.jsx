@@ -1,5 +1,7 @@
 import React from "react";
 import about from "../assets/about.png";
+import { useNavigate } from "react-router-dom";
+
 
 const features = [
   {
@@ -25,8 +27,15 @@ const features = [
 ];
 
 const About = () => {
+  const navigate = useNavigate()
+
+  const handleLearnMore = () => {
+    navigate("/aboutpage")
+  }
+
+
   return (
-    <section className="text-center bg-gray-50 ml-6 mr-4 mt-10 mb-10">
+    <section className="text-center bg-gray-300 px-6 py-10">
       <h2 className="text-2xl md:text-5xl font-bold mb-2">
         What makes us Stand out
       </h2>
@@ -43,8 +52,8 @@ const About = () => {
 
         {/* Features Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 gap-6 md:gap-6 lg:max-w-3xl text-left mt-5">
-          {features.map((feature, index) => (
-            <div key={index}>
+          {features.map((feature, id) => (
+            <div key={id}>
               <h3 className="text-black md:text-orange-500 text-base md:text-xl lg:text-xl font-semibold mb-3 md:mb-5 ">
                 {feature.title}
               </h3>
@@ -63,7 +72,9 @@ const About = () => {
       </div>
 
       <div className="lg:flex lg:flex-col lg:items-end">
-        <button className=" mt-8 bg-black text-white text-base md:text-xl px-4 py-2 rounded hover:bg-gray-800 transition">
+        <button
+          onClick={handleLearnMore}
+          className=" mt-8 bg-black text-white text-base md:text-xl px-6 py-2 rounded-full hover:bg-gray-800 transition">
           Learn More
         </button>
       </div>

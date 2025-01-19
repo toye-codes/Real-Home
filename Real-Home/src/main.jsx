@@ -4,21 +4,45 @@ import "./index.css";
 import App from "./App";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import Services from "./pages/Services";
+import Catalogue from "./pages/Catalogue";
+import Contact from "./pages/Contact"
+import AboutPage from "./pages/AboutPage";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <SignIn />,
   },
   {
     path: "/signin",
     element: <SignIn />,
   },
   {
+    path: "/home",
+    element: <App />,
+  },
+  {
     path: "/signup",
     element: <SignUp />,
+  },
+  {
+    path: "/services",
+    element: <Services />,
+  },
+  {
+    path: "/catalogue",
+    element: <Catalogue />,
+  },
+  {
+    path: "/aboutpage",
+    element: <AboutPage />,
+  },
+  {
+    path: "/contact",
+    element: <Contact />,
   },
 ]);
 

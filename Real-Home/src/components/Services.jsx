@@ -4,7 +4,9 @@ import payment from "../assets/payment.png";
 import details from "../assets/details.png";
 
 
+
 const Services = () => {
+
   const steps = [
     {
       id: 1,
@@ -39,27 +41,9 @@ const Services = () => {
     </div>
   );
 
-  // Dropdown Data
-  const locationOptions = ["New York", "Los Angeles", "Chicago"];
-  const propertyTypeOptions = ["House", "Apartment", "Condo"];
-  const priceOptions = ["$100k - $200k", "$200k - $300k", "$300k+"];
-
-  // Dropdown Component
-  const Dropdown = ({ options, label }) => (
-    <select
-      className="flex-1 bg-gray-100 rounded-md p-2 outline-none focus:ring-2 focus:ring-blue-500"
-      defaultValue="">
-      <option value="" disabled>
-        {label}
-      </option>
-      {options.map((option, index) => (
-        <option key={`${option}-${index}`}>{option}</option>
-      ))}
-    </select>
-  );
 
   return (
-    <div className="bg-gray-100 py-8 px-4">
+    <div className="bg-gray-100 pt-6 pb-5 px-4">
       {/* Title Section */}
       <div className="text-center mb-8">
         <h2 className="text-xl font-semibold md:text-5xl md:font-bold">
@@ -70,7 +54,7 @@ const Services = () => {
         </p>
       </div>
       {/* Steps Section */}
-      <div className="flex ml-10 mr-10 lg:my-20 flex-col md:flex-row md:justify-between gap-6">
+      <div className="flex ml-10 mr-10 lg:my-5 flex-col md:flex-row md:justify-between gap-6">
         {steps.map((step) => (
           <Step
             key={step.id}
@@ -80,26 +64,8 @@ const Services = () => {
           />
         ))}
       </div>
-      {/* Search Section */}
-      <div className="mt-8 bg-white p-6 rounded-lg shadow-md">
-        <h4 className="text-center text-gray-700 mb-4">
-          Let's ease your search process
-        </h4>
-        <div className="flex flex-col md:flex-row gap-4">
-          <Dropdown options={locationOptions} label="Preferred Location" />
-          <Dropdown options={propertyTypeOptions} label="Property Type" />
-          <Dropdown options={priceOptions} label="Price" />
-          <button className="bg-black text-white px-4 py-2 rounded-md hover:bg-blue-600">
-            Search
-          </button>
-        </div>
-      </div>
     </div>
   );
 };
 
 export default Services;
-
-
-// 640274954613-crhrds2shij8itrud2vn4ep06658ngc4.apps.googleusercontent.com       ID
-

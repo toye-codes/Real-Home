@@ -1,105 +1,118 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion"; 
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import navbar from "../assets/navbar.png";
-import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ className = "" }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+
+
+  const menuItems = [
+    { name: "Home", path: "/home" },
+    { name: "Services", path: "/services" },
+    { name: "Catalogue", path: "/catalogue" },
+    { name: "About Us", path: "/aboutpage" },
+    { name: "Contact", path: "/contact" },
+  ];
+
   return (
-    <header className="flex items-center justify-between p-4 lg:pl-10 lg:pt-5 lg:pb-5 lg:pr-10 bg-white shadow-md">
+    <header
+      className={`flex items-center justify-between px-5 pb-1 lg:pl-10 lg:pr-10 bg-gray-200 shadow-md rounded-br-2xl rounded-bl-2xl ${className}`}>
       {/* Logo */}
-      <div className="flex items-center">
-        <img src={logo} alt="real-homes" className="w-8 lg:w-11 lg:h-10" />
+      <div className="flex items-center mt-2">
+        <img
+          src={logo}
+          alt="real-homes"
+          className="w-8 lg:w- lg:h-8 rounded-full"
+        />
       </div>
 
-      <nav className="hidden sm:flex gap-6 text-xl font-normal w-auto text-gray-800">
-        <a
-          href="/home"
-          className="hover:font-semibold ">
-          Home
-        </a>
-        <a
-          href="/services"
-          className="hover:font-semibold">
-          Services
-        </a>
-        <a
-          href="/catalogue"
-          className="hover:font-semibold ">
-          Catalogue
-        </a>
-        <a
-          href="/about-us"
-          className="hover:font-semibold ">
-          About us
-        </a>
-        <a
-          href="/contact"
-          className="hover:font-semibold">
-          Contact
-        </a>
+      {/* Desktop Navigation */}
+      <nav className="hidden sm:flex gap-6 text-sm font-normal w-auto bg-white px-14 py-2 text-gray-800 mt-1 rounded-full">
+        <div>
+          {menuItems.map((item) => (
+            <Link
+              key={item.name}
+              to={item.path}
+              className="hover:font-semibold rounded-full hover:bg-gray-900 hover:text-white transition duration-300 px-4 py-2">
+              {item.name}
+            </Link>
+          ))}
+        </div>
       </nav>
 
       {/* Auth Buttons */}
-      <div className="flex items-center gap-4">
-        <button className="sm:flex px-4 py-2 border border-gray-800 text-gray-800 rounded hover:bg-gray-100">
+      <div className="hidden sm:flex items-center gap-4 bg-white px-5 py-2 rounded-full text-sm">
+        <button className="px-6 py-1  text-gray-800 rounded-full hover:bg-gray-900 hover:text-white transition duration-300">
           <Link to="/signin">Sign in</Link>
         </button>
-        <button className="px-4 py-2 border border-gray-800 text-gray-800 rounded hover:bg-orange-500 hover:text-white">
+        <button className="px-6 py-1  text-gray-800 rounded-full hover:bg-gray-900 hover:text-white transition duration-300">
           <Link to="/signup">Sign Up</Link>
         </button>
       </div>
 
-      <button onClick={toggleMenu} className="md:hidden relative">
-        {/* Animated Navbar Icon */}
+      {/* Mobile Toggle Button */}
+      <button onClick={toggleMenu} className="sm:hidden relative">
         <motion.img
           src={navbar}
           alt="real-homes"
           className="w-8 h-fit"
           animate={{
-            rotate: isOpen ? 90 : 0, // Rotate 90 degrees if open, 0 if closed
+            rotate: isOpen ? 90 : 0,
           }}
           transition={{
-            duration: 0.5, // Animation duration
+            duration: 0.5,
             ease: "easeInOut",
           }}
         />
-        {isOpen && (
-          <div className="absolute top-5 right-0 w-auto bg-white shadow-md text-lg font-normal text-gray-800 py-4 px-7">
-            <a
-              href="/home"
-              className="block mb-6 hover:font-semibold hover:bg-slate-500 hover:py-2 hover:px-2 hover:text-white hover:underline-offset-4">
-              Home
-            </a>
-            <a
-              href="/services"
-              className="block mb-6  hover:font-semibold hover:bg-slate-500 hover:py-2 hover:px-2 hover:text-white hover:underline hover:underline-offset-4">
-              Services
-            </a>
-            <a
-              href="/catalogue"
-              className="block mb-6  hover:font-semibold hover:bg-slate-500 hover:py-2 hover:px-2 hover:text-white hover:underline hover:underline-offset-4">
-              Catalogue
-            </a>
-            <a
-              href="/about-us"
-              className="block mb-6  hover:font-semibold hover:bg-slate-500 hover:py-2 hover:px-2 hover:text-white hover:underline hover:underline-offset-4">
-              About us
-            </a>
-            <a
-              href="/contact"
-              className="block mb-6 hover:font-semibold hover:bg-slate-500 hover:py-2 hover:px-2 hover:text-white hover:underline hover:underline-offset-4">
-              Contact
-            </a>
-          </div>
-        )}
       </button>
+
+      {/* Mobile Sidebar */}
+      {isOpen && (
+        <motion.div
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "100%" }}
+          transition={{
+            duration: 0.5,
+            ease: "easeInOut",
+          }}
+          className="fixed top-0 right-0 h-full w-3/4 bg-white shadow-lg z-50 flex flex-col p-6 text-lg font-normal text-gray-800">
+          <button
+            onClick={toggleMenu}
+            className="self-end mb-8 text-black active:text-gray-500">
+            Close
+          </button>
+
+          {menuItems.map((item) => (
+            <Link
+              key={item.name}
+              to={item.path}
+              onClick={toggleMenu}
+              className="mb-4 text-xl font-medium active:bg-gray-700 p-2 rounded">
+              {item.name}
+            </Link>
+          ))}
+          <div className="mt-auto">
+            <button className="block w-full px-4 py-2 text-gray-800 rounded active:bg-gray-100 mb-4">
+              <Link to="/signin" onClick={toggleMenu}>
+                Sign in
+              </Link>
+            </button>
+            <button className="block w-full px-4 py-2  text-gray-800 rounded active:bg-gray-900 active:text-white">
+              <Link to="/signup" onClick={toggleMenu}>
+                Sign Up
+              </Link>
+            </button>
+          </div>
+        </motion.div>
+      )}
     </header>
   );
 };

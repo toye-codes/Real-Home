@@ -3,6 +3,7 @@ import uphill from "../assets/uphill.png";
 import farm from "../assets/farm.png";
 import beach from "../assets/beach.png";
 import { CreditCard, MapPin } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const propsCard = [
   {
@@ -34,6 +35,14 @@ const propsCard = [
 ];
 
 const FeaturedProperties = () => {
+
+  const navigate = useNavigate();
+  // This function links the Browse More button to the catalogue page
+  const handleBrowseMore = () => {
+    navigate("/catalogue")
+  }
+
+
   const Properties = propsCard.map(
     ({ id, propertyImage, name, price, location, link }) => {
       return (
@@ -72,14 +81,16 @@ const FeaturedProperties = () => {
 
   return (
     <section className="bg-gray-100 py-12 px-4">
-      <h2 className="text-2xl font-bold text-center mb-8">
+      <h2 className="text-2xl md:text-4xl font-bold text-center mb-8">
         Our Featured Properties
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {Properties}
       </div>
       <div className="mt-8 text-center">
-        <button className="px-6 py-2 bg-black text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors duration-300">
+        <button
+          onClick={handleBrowseMore}
+          className="px-6 py-2 bg-black text-white font-semibold rounded-full hover:bg-gray-800 transition-colors duration-300">
           Browse more
         </button>
       </div>

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import john from "../assets/john.png";
 import marie from "../assets/marie.png";
+
 
 const TestimonialCard = ({ image, text, name }) => (
   <div className="p-4 w-auto rounded-lg shadow-lg bg-gray-50 text-center testimonial">
@@ -41,6 +43,12 @@ const Testimonial = () => {
       text: "I can’t believe how stress-free the entire process was, you guys helped my family and I and we’re so grateful.",
       name: "Alan Smith",
     },
+    {
+      id: 3,
+      image: john,
+      text: "You guys are amazing, customer service is top-notch. I’m super proud of myself for making you guys my source. The house is perfect, just as it was advertised. Thanksss.",
+      name: "Johnny Jonnes",
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -59,6 +67,21 @@ const Testimonial = () => {
 
   // Calculate indices for two testimonials
   const secondIndex = (currentIndex + 1) % testimonials.length;
+
+
+  // Get Started
+  const navigate = useNavigate();
+
+  const [getStarted, setGetStarted] = useState(false);
+
+  const handleGetStarted = () => {
+    if (!getStarted) {
+      navigate("/signup");
+    }
+  }
+
+  
+  
 
   return (
     <section className="bg-white py-8 px-4 lg:px-16 relative">
@@ -112,7 +135,9 @@ const Testimonial = () => {
       </div>
 
       <div className="mt-8 flex justify-center">
-        <button className="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800">
+        <button
+          onClick={handleGetStarted}
+          className="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800">
           Get started
         </button>
       </div>

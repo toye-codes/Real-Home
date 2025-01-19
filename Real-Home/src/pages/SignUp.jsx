@@ -60,12 +60,12 @@ const SignUp = () => {
     setErrors(newErrors);
 
     if (valid) {
-      navigate("/");
+      navigate("/home");
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 flex flex-col  justify-center py-3 px-7 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex items-center justify-center">
           <img
@@ -246,18 +246,18 @@ const SignUp = () => {
               </div>
             </div>
 
-            <div className="mt-6 grid grid-cols-2 gap-3">
+            <div className="flex flex-col items-center mt-5  md:flex-row md:gap-3">
               <button
                 type="button"
-                className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                className="hover:bg-blue-100"
+              >
                 <GoogleAuthButton />
-                <span className="ml-2">Google</span>
               </button>
-              <button
-                type="button"
-                className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                <img src={appleAuth} alt="Apple logo" className="h-5 w-5" />
-                <span className="ml-2">Apple</span>
+              <button type="button"
+                className="flex gap-5 mt-3 border px-4 py-1.5 rounded md:mt-0 hover:bg-blue-50"
+              >
+                <img src={appleAuth} alt="Apple logo" className="h-6 w-6" />
+                <span className="">Apple Sign in</span>
               </button>
             </div>
           </div>
