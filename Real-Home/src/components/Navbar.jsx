@@ -48,11 +48,8 @@ const Header = ({ className = "" }) => {
       </nav>
 
       {/* Auth Buttons */}
-      <div className="hidden sm:flex items-center gap-4 bg-white px-5 py-2 rounded-full text-sm">
-        <button className="px-6 py-1  text-gray-800 rounded-full hover:bg-gray-900 hover:text-white transition duration-300">
-          <Link to="/signin">Sign in</Link>
-        </button>
-        <button className="px-6 py-1  text-gray-800 rounded-full hover:bg-gray-900 hover:text-white transition duration-300">
+      <div className="hidden sm:flex items-center gap-4 bg-white px-5 rounded-full text-sm">
+        <button className="px-6 py-2  text-gray-800 rounded-full hover:bg-gray-900 hover:text-white transition duration-300">
           <Link to="/signup">Sign Up</Link>
         </button>
       </div>
@@ -100,12 +97,7 @@ const Header = ({ className = "" }) => {
             </Link>
           ))}
           <div className="mt-auto">
-            <button className="block w-full px-4 py-2 text-gray-800 rounded active:bg-gray-100 mb-4">
-              <Link to="/signin" onClick={toggleMenu}>
-                Sign in
-              </Link>
-            </button>
-            <button className="block w-full px-4 py-2  text-gray-800 rounded active:bg-gray-900 active:text-white">
+            <button className="block w-full px-4 py-2 border-2 bg-orange-300 border-gray-300 text-gray-200 rounded active:bg-gray-900 active:text-white">
               <Link to="/signup" onClick={toggleMenu}>
                 Sign Up
               </Link>
